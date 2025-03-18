@@ -6,7 +6,11 @@ Here’s a highly professional and visually appealing README.md file that clearl
 
 Welcome to my personal portfolio website! This platform showcases my skills, projects, certifications, internships, and achievements in Full Stack Development, Data Science, and AI/ML.
 
-📌 Live Demo: your-portfolio-link.com
+---
+
+## 🖥 Live Demo
+
+🔗 _Try it here:_ [Aniruddh Ekansh Pandey Portfolio](https://ai-language-translator-gmknsdinptzxxeycfyhevv.streamlit.app/)
 
 ---
 
@@ -32,20 +36,23 @@ Email Integration: Nodemailer, server.js
 
 ---
 
-🚀 Installation & Setup
+## 🚀 Installation Guide
 
-Clone the Repository
+Follow these steps to set up the project _locally_:
 
-git clone https://github.com/yourusername/your-portfolio.git
-cd your-portfolio
+### 1️⃣ _Clone the Repository_
 
-Install Dependencies
+bash
+git clone [Repository](https://github.com/ANIRUDDH-EKANSH-PANDEY/Personal-Portfolio-Website.git)
+cd Personal-Portfolio-Website
 
-npm install
+2️⃣ Install Dependencies
 
-Start the Development Server
+    npm install
 
-npm start
+3️⃣ Start the Development Server
+
+    npm start
 
 🚀 Your portfolio will be running at http://localhost:3000/
 
