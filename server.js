@@ -12,7 +12,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:3000",
-      "https://personal-portfolio-website-iquc.onrender.com",
+      "https://aniruddh-portfolio-six.vercel.app/",
     ], // Allow both local & deployed frontend
     credentials: true, // Allow cookies and credentials
   })
