@@ -1,7 +1,3 @@
-Here’s a highly professional and visually appealing README.md file that clearly explains your portfolio project while maintaining an elegant structure.
-
----
-
 🌐 Aniruddh Ekansh Pandey - Portfolio
 
 Welcome to my personal portfolio website! This platform showcases my skills, projects, certifications, internships, and achievements in Full Stack Development, Data Science, and AI/ML.
@@ -42,9 +38,9 @@ Follow these steps to set up the project _locally_:
 
 ### 1️⃣ _Clone the Repository_
 
-bash
-git clone [Repository](https://github.com/ANIRUDDH-EKANSH-PANDEY/Personal-Portfolio-Website.git)
-cd Personal-Portfolio-Website
+    bash
+    git clone [Repository](https://github.com/ANIRUDDH-EKANSH-PANDEY/Personal-Portfolio-Website.git)
+    cd Personal-Portfolio-Website
 
 2️⃣ Install Dependencies
 
