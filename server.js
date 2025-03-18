@@ -5,27 +5,23 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 
 const app = express();
-const port = process.env.PORT || 5000; // ✅ Dynamic port for Render
+const port = process.env.PORT || 5000; // ✅ Use dynamic port for Render
 
 // Middleware
 app.use(
   cors({
     origin: [
-      "https://aniruddh-portfolio-six.vercel.app", // ✅ Only allow deployed frontend
+      "http://localhost:3000",
+      "https://aniruddh-portfolio-six.vercel.app", // ✅ Fixed CORS URL
     ],
     credentials: true, // Allow cookies and credentials
   })
 );
 app.use(bodyParser.json());
 
-// ✅ Health Check Route (To Test if Backend is Running)
-app.get("/", (req, res) => {
-  res.send("Backend is running!");
-});
-
-// ✅ POST route to handle contact form submission
+// POST route to handle contact form submission
 app.post("/contact", (req, res) => {
-  console.log("Received Contact Form Submission:", req.body);
+  console.log("Received Contact Form Submission:", req.body); // ✅ Debugging log
 
   const { name, email, message } = req.body;
   if (!name || !email || !message) {
@@ -63,7 +59,7 @@ app.post("/contact", (req, res) => {
   });
 });
 
-// ✅ Start the server
+// Start server
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
