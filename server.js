@@ -1,46 +1,46 @@
-require("dotenv").config(); // Load environment variables from .env
+require("dotenv").config(); // Load environment variables
 const express = require("express");
 const nodemailer = require("nodemailer");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000; // ✅ Use dynamic port for Render
 
 // Middleware
 app.use(
   cors({
     origin: [
       "http://localhost:3000",
-      "https://aniruddh-portfolio-six.vercel.app/",
-    ], // Allow both local & deployed frontend
+      "https://aniruddh-portfolio-six.vercel.app", // ✅ Fixed CORS URL
+    ],
     credentials: true, // Allow cookies and credentials
   })
 );
-app.use(bodyParser.json()); // Parse incoming request bodies in JSON format
+app.use(bodyParser.json());
 
 // POST route to handle contact form submission
 app.post("/contact", (req, res) => {
-  const { name, email, message } = req.body;
+  console.log("Received Contact Form Submission:", req.body); // ✅ Debugging log
 
-  // Ensure all required fields are provided
+  const { name, email, message } = req.body;
   if (!name || !email || !message) {
     return res.status(400).json({ message: "All fields are required" });
   }
 
-  // Create a Nodemailer transporter using your email service provider
+  // Create a Nodemailer transporter
   const transporter = nodemailer.createTransport({
-    service: "gmail", // or use a different email service
+    service: "gmail",
     auth: {
-      user: process.env.EMAIL_USER, // Load email from environment variables
-      pass: process.env.EMAIL_PASS, // Load password from environment variables
+      user: process.env.EMAIL_USER, // ✅ Ensure these are set in Render
+      pass: process.env.EMAIL_PASS,
     },
   });
 
   // Email options
   const mailOptions = {
-    from: email, // The email address provided in the form
-    to: process.env.EMAIL_USER, // Your email address where you'll receive submissions
+    from: email,
+    to: process.env.EMAIL_USER,
     subject: `Contact form submission from ${name}`,
     text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
   };
@@ -59,6 +59,7 @@ app.post("/contact", (req, res) => {
   });
 });
 
+// Start server
 app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
+  console.log(`Server running on port ${port}`);
 });
