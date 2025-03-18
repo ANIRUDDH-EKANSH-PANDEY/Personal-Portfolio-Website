@@ -6,7 +6,7 @@ Welcome to my personal portfolio website! This platform showcases my skills, pro
 
 ## 🖥 Live Demo
 
-🔗 _Try it here:_ [Aniruddh Ekansh Pandey Portfolio](aniruddh-portfolio-m4xfg7j1d-aniruddh-ekansh-pandeys-projects.vercel.app)
+🔗 _Try it here:_ [Aniruddh Ekansh Pandey Portfolio](https://aniruddh-portfolio-six.vercel.app/)
 
 ---
 
