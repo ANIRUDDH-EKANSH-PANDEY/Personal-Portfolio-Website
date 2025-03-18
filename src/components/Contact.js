@@ -69,7 +69,7 @@ function Contact() {
 
     try {
       const response = await fetch(
-        "https://personal-portfolio-website-iquc.onrender.com",
+        "https://personal-portfolio-website-iquc.onrender.com/contact",
         {
           method: "POST",
           headers: {

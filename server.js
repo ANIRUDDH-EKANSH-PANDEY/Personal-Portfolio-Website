@@ -19,29 +19,42 @@ app.use(
 );
 app.use(bodyParser.json());
 
-// POST route to handle contact form submission
+// ✅ Health Check Route
+app.get("/", (req, res) => {
+  res.send("Backend is running!");
+});
+
+// ✅ POST route to handle contact form submission
 app.post("/contact", (req, res) => {
-  console.log("Received Contact Form Submission:", req.body); // ✅ Debugging log
+  console.log("Received Contact Form Submission:", req.body);
 
   const { name, email, message } = req.body;
   if (!name || !email || !message) {
     return res.status(400).json({ message: "All fields are required" });
   }
 
+  // Ensure environment variables are set
+  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+    console.error("Missing EMAIL_USER or EMAIL_PASS in environment variables.");
+    return res
+      .status(500)
+      .json({ message: "Server email configuration error." });
+  }
+
   // Create a Nodemailer transporter
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: process.env.EMAIL_USER, // ✅ Ensure these are set in Render
+      user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS,
     },
   });
 
   // Email options
   const mailOptions = {
-    from: email,
+    from: `"Portfolio Contact Form" <${process.env.EMAIL_USER}>`, // Set a fixed sender email
     to: process.env.EMAIL_USER,
-    subject: `Contact form submission from ${name}`,
+    subject: `New Contact Form Submission from ${name}`,
     text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
   };
 
@@ -53,13 +66,13 @@ app.post("/contact", (req, res) => {
         .status(500)
         .json({ message: "Failed to send message. Try again later." });
     } else {
-      console.log("Email sent:", info.response);
+      console.log("Email sent successfully:", info.response);
       return res.status(200).json({ message: "Message sent successfully!" });
     }
   });
 });
 
-// Start server
+// ✅ Start the server
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
