@@ -10,7 +10,10 @@ const port = 5000;
 // Middleware
 app.use(
   cors({
-    origin: "http://localhost:3000", // Allow requests from your React frontend
+    origin: [
+      "http://localhost:3000",
+      "https://personal-portfolio-website-iquc.onrender.com",
+    ], // Allow both local & deployed frontend
     credentials: true, // Allow cookies and credentials
   })
 );
