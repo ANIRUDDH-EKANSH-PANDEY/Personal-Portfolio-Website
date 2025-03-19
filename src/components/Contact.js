@@ -56,6 +56,8 @@ function Contact() {
     message: "",
   });
 
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -66,6 +68,7 @@ function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     try {
       const response = await fetch(
@@ -79,23 +82,21 @@ function Contact() {
         }
       );
 
-      const result = await response.json();
-      console.log(result);
-
-      // Reset the form fields after successful submission
       if (response.ok) {
+        const result = await response.json();
+        console.log(result);
         alert("Message sent successfully!");
-        setFormData({
-          name: "",
-          email: "",
-          message: "",
-        });
+        setFormData({ name: "", email: "", message: "" });
       } else {
         alert("Failed to send message. Please try again.");
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("An error occurred. Please try again.");
+      alert(
+        "An error occurred. Please check your internet connection and try again."
+      );
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -126,7 +127,9 @@ function Contact() {
           onChange={handleChange}
           required
         ></TextArea>
-        <Button type="submit">Send Message</Button>
+        <Button type="submit" disabled={loading}>
+          {loading ? "Sending..." : "Send Message"}
+        </Button>
       </ContactForm>
     </ContactSection>
   );
