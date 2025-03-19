@@ -94,7 +94,7 @@ function Projects() {
       title: "Portfolio Website",
       description:
         "Designed and developed a personal portfolio website showcasing projects, skills, and experience using React.js and Styled Components.",
-      dashboardLink: null,
+      dashboardLink: "https://aniruddh-portfolio-six.vercel.app/",
     },
   ];
 
