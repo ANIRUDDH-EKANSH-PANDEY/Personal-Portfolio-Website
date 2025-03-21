@@ -58,7 +58,7 @@ function Home() {
       <ProfileImage src="./assets/profile.jpg" alt="Aniruddh Ekansh Pandey" />
 
       {/* Download Resume Button */}
-      <Button href="./assets/Aniruddh_Ekansh_Pandey_Resume (2).pdf" download>
+      <Button href="./assets/Aniruddh_Ekansh_Pandey_Resume (4).pdf" download>
         Download Resume
       </Button>
     </HomeSection>
