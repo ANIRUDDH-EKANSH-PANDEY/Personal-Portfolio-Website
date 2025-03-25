@@ -1,53 +1,12 @@
 import React, { useState } from "react";
-import styled from "styled-components";
-
-const ContactSection = styled.section`
-  padding: 60px;
-  background-color: #fff;
-`;
-
-const Title = styled.h1`
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-  color: #0d47a1;
-`;
-
-const ContactForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  max-width: 600px;
-  margin: 0 auto;
-`;
-
-const Input = styled.input`
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-`;
-
-const TextArea = styled.textarea`
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  height: 150px;
-`;
-
-const Button = styled.button`
-  background-color: #0d47a1;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #fdd835;
-    color: black;
-  }
-`;
+import {
+  ContactSection,
+  Title,
+  ContactForm,
+  Input,
+  TextArea,
+  Button,
+} from "../styles/ContactStyles";
 
 function Contact() {
   const [formData, setFormData] = useState({

@@ -1,70 +1,13 @@
 import React, { useState } from "react";
-import styled from "styled-components";
-
-const ProjectsSection = styled.section`
-  padding: 60px;
-  background-color: #fff;
-`;
-
-const Title = styled.h1`
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-  color: #0d47a1;
-`;
-
-const ProjectsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-`;
-
-const ProjectCard = styled.div`
-  border: 1px solid #ddd;
-  padding: 20px;
-  border-radius: 8px;
-  background-color: #f0f4f8;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  position: relative;
-
-  &:hover {
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
-    transform: translateY(-5px);
-  }
-`;
-
-const ProjectTitle = styled.h3`
-  color: #0d47a1;
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-`;
-
-const ProjectDescription = styled.p`
-  font-size: 1rem;
-  color: #555;
-  margin-top: 10px;
-  display: ${({ isOpen }) => (isOpen ? "block" : "none")};
-`;
-
-const DashboardButton = styled.a`
-  display: inline-block;
-  background-color: #0d47a1;
-  color: white;
-  text-decoration: none;
-  padding: 8px 16px;
-  border-radius: 5px;
-  margin-top: 10px;
-  font-size: 1rem;
-  font-weight: bold;
-
-  &:hover {
-    background-color: #fdd835;
-    color: black;
-  }
-`;
+import {
+  ProjectsSection,
+  Title,
+  ProjectsGrid,
+  ProjectCard,
+  ProjectTitle,
+  ProjectDescription,
+  DashboardButton,
+} from "../styles/ProjectStyles";
 
 function Projects() {
   const [openProject, setOpenProject] = useState(null);
@@ -72,28 +15,47 @@ function Projects() {
   const projects = [
     {
       title: "AI-Based Resume Ranking System",
-      description:
+      description: [
         "Developed an AI-powered system using NLP and TensorFlow to analyze and rank resumes based on job requirements.",
+        "Implemented NLP algorithms for automated skill extraction & ranking, optimizing recruitment workflows.",
+        "Designed an interactive Streamlit dashboard, enabling real-time filtering and analysis of applicant data.",
+      ],
       dashboardLink:
         "https://ai-resume-ranking-iap4k7eqjefkxdl4zvkzsw.streamlit.app/",
     },
     {
       title: "AI-Based Language Translator",
-      description:
-        "Built a multilingual translator that translates entered text and extracts text from uploaded documents, supporting 20+ languages. Allows downloading translated text.",
+      description: [
+        "Built a multilingual translator that translates entered text and extracts text from uploaded documents, supporting 20+ languages.",
+        "Integrated Optical Character Recognition (OCR) for text extraction from images and scanned documents.",
+        "Enabled real-time text translation & downloadable translated documents, improving usability by 40%.",
+      ],
       dashboardLink:
         "https://ai-language-translator-gmknsdinptzxxeycfyhevv.streamlit.app/",
     },
     {
+      title: "Classification Model Using CNN for CIFAR-10 dataset",
+      description: [
+        "Built & trained a CNN model, achieving 92% accuracy on the CIFAR-10 dataset.",
+        "Optimized model performance by integrating batch normalization & dropout layers, reducing overfitting.",
+        "Implemented real-time image classification pipeline, improving inference speed by 30%.",
+      ],
+      dashboardLink: null,
+    },
+    {
       title: "BookMyShow Clone",
-      description:
+      description: [
         "Designed the UI and integrated Razorpay payments using React.js and TMDB API for real-time movie details.",
+        "Developed a responsive UI & integrated Razorpay, enabling secure movie ticket payments (test environment).",
+        "Designed an interactive user interface, reducing navigation time by 25%.",
+      ],
       dashboardLink: null,
     },
     {
       title: "Portfolio Website",
-      description:
+      description: [
         "Designed and developed a personal portfolio website showcasing projects, skills, and experience using React.js and Styled Components.",
+      ],
       dashboardLink: "https://aniruddh-portfolio-six.vercel.app/",
     },
   ];
@@ -120,7 +82,11 @@ function Projects() {
               </DashboardButton>
             )}
             <ProjectDescription isOpen={openProject === index}>
-              {project.description}
+              <ul>
+                {project.description.map((point, i) => (
+                  <li key={i}>{point}</li>
+                ))}
+              </ul>
             </ProjectDescription>
           </ProjectCard>
         ))}

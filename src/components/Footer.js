@@ -1,32 +1,10 @@
 import React from "react";
-import styled from "styled-components";
-
-const FooterSection = styled.footer`
-  background-color: #0d47a1;
-  padding: 40px 0;
-  color: white;
-  text-align: center;
-`;
-
-const FooterText = styled.p`
-  font-size: 1rem;
-  margin-bottom: 10px;
-`;
-
-const SocialLinks = styled.div`
-  margin-top: 20px;
-`;
-
-const SocialLink = styled.a`
-  color: #fdd835;
-  margin: 0 15px;
-  font-size: 1.5rem;
-  text-decoration: none;
-
-  &:hover {
-    color: white;
-  }
-`;
+import {
+  FooterSection,
+  FooterText,
+  SocialLinks,
+  SocialLink,
+} from "../styles/FooterStyles";
 
 const Footer = () => {
   return (

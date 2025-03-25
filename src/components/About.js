@@ -1,57 +1,12 @@
 import React, { useState } from "react";
-import styled from "styled-components";
-
-const AboutSection = styled.section`
-  padding: 60px;
-  background-color: #f0f4f8;
-`;
-
-const Title = styled.h1`
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-  color: #0d47a1;
-`;
-
-const Bio = styled.p`
-  font-size: 1.2rem;
-  line-height: 1.8;
-  text-align: center;
-  color: #333;
-  max-width: 800px;
-  margin: 0 auto;
-`;
-
-const SkillsSection = styled.div`
-  margin-top: 40px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-`;
-
-const SkillCard = styled.div`
-  background-color: #0d47a1;
-  color: white;
-  padding: 15px;
-  margin: 10px;
-  border-radius: 8px;
-  font-size: 1rem;
-  width: 200px;
-  text-align: center;
-  cursor: pointer;
-  position: relative;
-`;
-
-const SkillList = styled.div`
-  background-color: white;
-  color: #0d47a1;
-  border-radius: 8px;
-  margin-top: 10px;
-  padding: 10px;
-  width: 100%;
-  display: ${({ isOpen }) => (isOpen ? "block" : "none")};
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-`;
+import {
+  AboutSection,
+  Title,
+  Bio,
+  SkillsSection,
+  SkillCard,
+  SkillList,
+} from "../styles/AboutStyles";
 
 function About() {
   const [openCategory, setOpenCategory] = useState(null);
